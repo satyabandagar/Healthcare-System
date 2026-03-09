@@ -1,0 +1,102 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+.DoctorList {
+  width: 96%;
+  margin-top: 50px;
+  margin-left: 30px;
+  overflow: hidden;
+}
+.HomeDoctor {
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 25px;
+  margin-top: 30px;
+}
+.list {
+  display: flex;
+  align-items: center;
+}
+.list h1 {
+  display: flex;
+  align-items: center;
+  margin-left: 600px;
+  background: linear-gradient(to right, red, blue, green);
+    -webkit-background-clip: text;
+    color: transparent;
+}
+.doctor {
+  width: 400px;
+  height: 500px;
+  margin-left: 30px;
+   background: linear-gradient(
+        to right,
+        rgba(245, 245, 247, 0.256),
+        rgba(225, 225, 239, 0.237),
+        rgba(236, 236, 237, 0.232)
+    );
+    box-shadow: 0.5px 0.5px 5px 0.5px rgb(83, 82, 82);
+    border-radius: 20px;
+}
+.doctorInfo{
+    margin-top: 10px;
+}
+
+@media (max-width: 900px) {
+  .HomeDoctor {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* Mobile */
+
+@media (max-width: 600px) {
+  .HomeDoctor {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Section 2nd start */
+.appoment{
+    margin-top: 100px;
+    width: 96%;
+    margin-left: 30px;
+    display: flex;
+    gap: 30px;
+    justify-content: space-between;
+     background: linear-gradient(
+        to right,
+        rgba(226, 226, 228, 0.451),
+        rgba(201, 201, 203, 0.237),
+        rgba(231, 232, 233, 0.499)
+    );
+    border-radius: 20px;
+}
+.appInfo{
+    width: 700px;
+    margin-left: 100px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.appInfo h1{
+    font-size: 50px;
+}
+.appInfo h1 span{
+    background: linear-gradient(to right, red, blue, green);
+    -webkit-background-clip: text;
+    color: transparent;
+
+}
+.appImg{
+    width: 400px;
+    margin-right: 100px;
+}
+.appImg img{
+    width: 400px;
+   
+}

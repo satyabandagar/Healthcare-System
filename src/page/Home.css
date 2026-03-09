@@ -3,113 +3,104 @@
     margin: 0;
     box-sizing: border-box;
 }
+
 .home{
-    width: 95%;
-    height: 550px;
-    background: linear-gradient(to right, rgba(72, 75, 109, 0.429), rgba(46, 46, 159, 0.237), rgba(1, 22, 117, 0.484));
+    width: 96%;
+    background: linear-gradient(
+        to right,
+        rgba(72, 75, 109, 0.429),
+        rgba(46, 46, 159, 0.237),
+        rgba(1, 22, 117, 0.484)
+    );
     display: flex;
     align-items: center;
-    margin-top: 90px;
-    margin-left: 40px;
-    position: absolute;
+    justify-content: space-between;
+    margin-top: 100px;
+    margin-left: 30px;
     border-radius: 10px;
     box-shadow: 1px 0.5px 3px 0px black;
 }
+
 .hender{
     display: flex;
     flex-direction: column;
-    align-items: center;
+    gap: 30px;
 }
+
 .hender h1{
-    margin-left: 80px;
-    margin-bottom:150px ;
     font-size: 50px;
+    margin-left: 100px;
 }
+
 .hender h1 span{
     background: linear-gradient(to right, red, blue, green);
-  -webkit-background-clip: text;
-  color: transparent;
+    -webkit-background-clip: text;
+    color: transparent;
 }
+
 .img{
-    position:absolute;
-    bottom: -5px;
-    left: 700px;
+     width: 700px;
+     height: 450px;
 }
+
+.img img{
+    width: 700px;
+    height: 450px;
+}
+
 button{
     width: 150px;
     height: 60px;
-    background-color: azure;
-    font-size: 26px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    position: relative;
-   right: 100px;
-   bottom: 100px;
-   border: none;
-   border-radius: 15px;
-   color: black;
-   background: linear-gradient(to right, rgba(255, 0, 0, 0.556), rgba(67, 67, 190, 0.704), rgba(95, 119, 95, 0.573));
+    font-size: 22px;
+    border: none;
+    border-radius: 15px;
+    color: black;
+    background: linear-gradient(
+        to right,
+        rgba(255, 0, 0, 0.556),
+        rgba(67, 67, 190, 0.704),
+        rgba(95, 119, 95, 0.573)
+    );
     box-shadow: 1px 1px 1px 1px black;
+    cursor: pointer;
+    margin-left: 100px;
 }
+
 button:hover{
     box-shadow: 1px 0.5px 2px 1px black;
 }
+
 button a{
-    color: rgb(0, 0, 0);
-     
+    text-decoration: none;
+    color: black;
 }
-/* Tablet */
+
 @media (max-width: 992px){
 
     .home{
-        width: 95%;
-        height: auto;
         flex-direction: column;
-        justify-content: center;
-        margin-left: 10px;
-        padding: 20px;
+        text-align: center;
+        gap: 40px;
     }
 
     .hender h1{
         font-size: 40px;
-        margin-left: 0;
-        margin-bottom: 50px;
-        text-align: center;
     }
 
-    .img{
-        position: static;
-        margin-top: 20px;
+    .img img{
+        width: 350px;
     }
 
 }
 
-
-/* Mobile */
 @media (max-width: 600px){
-
-    .home{
-        width: 95%;
-        flex-direction: column;
-        height: auto;
-        margin-left: 5px;
-        padding: 15px;
-    }
 
     .hender h1{
         font-size: 30px;
-        margin-left: 0;
-        margin-bottom: 30px;
-        text-align: center;
     }
 
-    .img{
-        position: static;
-        width: 100%;
-        display: flex;
-        justify-content: center;
-        margin-top: 15px;
+    .img img{
+        width: 250px;
     }
 
 }

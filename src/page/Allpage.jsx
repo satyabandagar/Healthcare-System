@@ -1,14 +1,12 @@
 import React from 'react'
-import Navbar from './Navbar'
-// import Footer from './Footer'
 import Home from './Home'
+import HomeDoctor from './HomeDoctor'
 
 function PageMain() {
   return (
     <div>
-      <Navbar/>
       <Home/>
-      {/* <Footer/> */}
+      <HomeDoctor/>
     </div>
   )
 }

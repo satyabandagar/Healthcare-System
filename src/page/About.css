@@ -1,0 +1,63 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+.about{
+    margin-top: 100px;
+    width: 96%;
+    margin-left: 30px;
+}
+.about h1{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+h1{
+    background: linear-gradient(to right, rgba(255, 0, 0, 0.863),#d8e917,#333, rgb(255, 13, 0), green);
+    -webkit-background-clip: text;
+    color: transparent;
+}
+.aboutImg{
+    margin-top: 50px;
+    width: 100%;
+    display: flex;
+}
+.img img{
+    border-radius: 25px;
+}
+.aboutInfo p{
+    font-size: 20px;
+    margin:80px 50px;
+}
+#mission{
+    display: flex;
+    gap: 250px;
+}
+.mission{
+    display: flex;
+    flex-direction: column;
+    width: 40%;
+    margin-top: 80px;
+    box-shadow: 0.5px 0.5px 2px 0.5px black;
+    padding: 10px;
+}
+.mission h3{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.vision{
+    display: flex;
+    flex-direction: column;
+    width: 40%;
+    margin-top: 80px;
+    box-shadow: 0.5px 0.5px 2px 0.5px black;
+    background: linear-gradient(to right #222 #333 #fff);
+    padding: 10px;
+}
+.vision h3{
+     display: flex;
+    align-items: center;
+    justify-content: center;
+}
