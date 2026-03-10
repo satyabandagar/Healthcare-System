@@ -6,6 +6,7 @@ import Navbar from './page/Navbar';
 import Footer from './page/Footer';
 import About from './page/About';
 import Contact from './page/Contact';
+import DoctorList from './componet/DoctorList';
 
 function App() {
  
@@ -18,6 +19,7 @@ function App() {
         <Route path='/' element={<Allpage/>}/>
         <Route path='/about' element={<About/>}/>
         <Route path='/contact' element={<Contact/>}/>
+        <Route path="/doctor/:id" element={<DoctorList/>}/>
      </Routes>
      <Footer/>
      </BrowserRouter>

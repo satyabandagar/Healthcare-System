@@ -69,9 +69,9 @@
     justify-content: space-between;
      background: linear-gradient(
         to right,
-        rgba(226, 226, 228, 0.451),
-        rgba(201, 201, 203, 0.237),
-        rgba(231, 232, 233, 0.499)
+        rgba(226, 226, 228, 0.621),
+        rgba(201, 201, 203, 0.685),
+        rgba(231, 232, 233, 0.684)
     );
     border-radius: 20px;
 }

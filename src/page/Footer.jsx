@@ -14,18 +14,18 @@ function Footer() {
       <div className="contact">
         <ul>
           <li style={{listStyle:"none"}}><h3>Contact</h3></li>
-            <li>91+ 8767183661</li>
-            <li>G-mail: bandagar@gmail.com</li>
-            <li>Help: 100</li>
+            <li> <i class="fa-solid fa-phone"></i><a href="" style={{color:"white"}}> 91+ 8767183661</a></li>
+            <li><i class="fa-solid fa-envelope"></i><a href="" style={{color:"white"}}> G-mail: bandagar@gmail.com</a></li>
+            <li><i class="fa-solid fa-hand-holding-medical"></i><a href="" style={{color:"white"}}> Help: 100</a></li>
         </ul>
       </div>
       <div className="social">
         <ul>
           <li style={{listStyle:"none"}}><h3>Social Media</h3></li>
-            <li>WhatsApp</li>
-            <li>Twitter</li>
-            <li>Instagram</li>
-            <li>Facebook</li>
+            <li><i class="fa-brands fa-whatsapp"></i><a href="" style={{color:"white"}}> WhatsApp</a></li>
+            <li><i class="fa-brands fa-twitter"></i><a href="" style={{color:"white"}}> Twitter</a></li>
+            <li><i class="fa-brands fa-instagram"></i><a href="" style={{color:"white"}}> Instagram</a></li>
+            <li><i class="fa-brands fa-facebook"></i><a href="" style={{color:"white"}}> Facebook</a></li>
         </ul>
       </div>
       </div>
