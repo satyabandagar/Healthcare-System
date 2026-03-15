@@ -1,4 +1,4 @@
-﻿# Healthcare-System
+﻿
 # Healthcare System – Telemedicine for Rural Areas
 
 ## Project Description
