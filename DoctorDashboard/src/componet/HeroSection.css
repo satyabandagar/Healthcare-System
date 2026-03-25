@@ -1,0 +1,29 @@
+.heroSection{
+    width: 96%;
+    margin-top: 150px;
+    margin-left: 30px;
+    height: 100vh;
+    border-radius: 15px;
+}
+.doc{
+    width: 100%;
+    display: flex;
+    gap: 30px;
+}
+.docImg{
+    width: 250px;
+    height: 250px;
+    margin-left: 150px;
+}
+.docImg img{
+    width: 100%;
+    height: 100%;
+}
+.docInfo{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    margin-left: 150px;
+    align-items: center;
+    justify-content: center;
+}

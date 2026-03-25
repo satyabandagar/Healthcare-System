@@ -1,0 +1,40 @@
+body {
+  background: linear-gradient(to right, #c8cacc54, #4e535370);
+  min-height: 100vh;
+}
+
+form {
+  background: white;
+}
+.container {
+  max-width: 600px;
+}
+
+h2 {
+  text-align: center;
+  margin-bottom: 20px;
+  font-weight: bold;
+}
+
+form {
+  background: #f8f9fa;
+  padding: 25px;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+.form-control {
+  border-radius: 8px;
+  padding: 10px;
+}
+
+textarea.form-control {
+  height: 100px;
+}
+
+button {
+  width: 100%;
+  padding: 10px;
+  border-radius: 8px;
+  font-size: 18px;
+}
