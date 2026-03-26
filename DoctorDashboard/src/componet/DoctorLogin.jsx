@@ -9,7 +9,7 @@ function DoctorLogin() {
   const navigate = useNavigate();
 
   const handleLogin = async () => {
-    const res = await axios.post("http://localhost:5000/doctor/login", {
+    const res = await axios.post("http://localhost:5000/api/login", {
       email,
       password,
     });
@@ -24,9 +24,11 @@ function DoctorLogin() {
 
   return (
     <div className="container mt-5">
-      <h2>Doctor Login</h2>
+      <div className="DocLog">
+        <h2>Doctor Login</h2>
 
-      <input
+     <div className="">
+       <input
         type="email"
         placeholder="Email"
         className="form-control mb-2"
@@ -39,10 +41,12 @@ function DoctorLogin() {
         className="form-control mb-2"
         onChange={(e) => setPassword(e.target.value)}
       />
+     </div>
 
-      <button className="btn btn-primary" onClick={handleLogin}>
+      <button style={{backgroundColor:"rgba(71, 200, 54, 0.78)"}} className="btn btn-primary" onClick={handleLogin}>
         Login
       </button>
+      </div>
     </div>
   );
 }

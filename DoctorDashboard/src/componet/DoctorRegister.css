@@ -1,28 +1,28 @@
-body {
-  background: linear-gradient(to right, #c8cacc54, #4e535370);
-  min-height: 100vh;
-}
-
-form {
-  background: white;
-}
 .container {
-  max-width: 600px;
+  width: 96%;
+  background: linear-gradient(to right, #c8cacc54, #4e535370);
+ display: flex;
+ flex-direction: column;
+ align-items: center;
+ justify-content: center;
+ margin-left: 30px;
+ border-radius: 15px
 }
-
-h2 {
-  text-align: center;
-  margin-bottom: 20px;
-  font-weight: bold;
+h2{
+  margin-top: 20px;
 }
-
-form {
-  background: #f8f9fa;
-  padding: 25px;
-  border-radius: 10px;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+form{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
-
+input{
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  width: 500px;
+}
 .form-control {
   border-radius: 8px;
   padding: 10px;

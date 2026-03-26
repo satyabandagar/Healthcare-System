@@ -65,4 +65,67 @@ res.json({message:"Appointment Cancelled"})
 
 })
 
+
+
+// Doctor appointments show
+router.get("/doctor/:doctor_id", (req, res) => {
+  const doctorId = req.params.doctor_id;
+
+  const sql = "SELECT * FROM appointments WHERE doctor_id=?";
+
+  db.query(sql, [doctorId], (err, result) => {
+    if (err) {
+      console.log(err);
+      res.send("Database Error");
+    } else {
+      res.json(result);
+    }
+  });
+});
+
+
+// Total Bookings
+router.get("/total-bookings/:doctor_id", (req, res) => {
+  const sql = "SELECT COUNT(*) AS total FROM appointments WHERE doctor_id=?";
+
+  db.query(sql, [req.params.doctor_id], (err, result) => {
+    res.json(result[0]);
+  });
+});
+
+// Unique Patients
+router.get("/total-patients/:doctor_id", (req, res) => {
+  const sql = "SELECT COUNT(DISTINCT patient_email) AS total FROM appointments WHERE doctor_id=?";
+
+  db.query(sql, [req.params.doctor_id], (err, result) => {
+    res.json(result[0]);
+  });
+});
+
+// Accept appointment
+router.put("/accept/:id", (req, res) => {
+  const sql = "UPDATE appointments SET status='accepted' WHERE id=?";
+
+  db.query(sql, [req.params.id], (err, result) => {
+    if (err) {
+      res.send("Database Error");
+    } else {
+      res.send("Appointment Accepted");
+    }
+  });
+});
+
+// Reject appointment
+router.put("/reject/:id", (req, res) => {
+  const sql = "UPDATE appointments SET status='rejected' WHERE id=?";
+
+  db.query(sql, [req.params.id], (err, result) => {
+    if (err) {
+      res.send("Database Error");
+    } else {
+      res.send("Appointment Rejected");
+    }
+  });
+});
+
 module.exports = router;

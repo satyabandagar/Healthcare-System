@@ -1,5 +1,6 @@
 import React from 'react'
 import "./HeroSection.css"
+import TotalUser from '../page/TotalUser';
 
 function HeroSection() {
 
@@ -11,7 +12,8 @@ function HeroSection() {
 
 
   return (
-    <div>
+   <>
+    <div >
       <div className="heroSection">
         
           <div className="doc">
@@ -39,6 +41,8 @@ function HeroSection() {
         </div>
      
     </div>
+     <TotalUser/>
+   </>
   )
 }
 

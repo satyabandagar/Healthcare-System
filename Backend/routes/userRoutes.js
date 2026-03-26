@@ -2,44 +2,70 @@ const express = require("express");
 const router = express.Router();
 const db = require("../db");
 
-router.post("/register",(req,res)=>{
+// USER REGISTER
+router.post("/register", (req, res) => {
 
-const {name,email,password,mobile,gender} = req.body;
+  const { name, email, password, mobile, gender } = req.body;
 
-const sql = "INSERT INTO users(name,email,password,mobile,gender) VALUES(?,?,?,?,?)";
+  if (!name || !email || !password || !mobile || !gender) {
+    return res.json({ success: false, message: "All fields required" });
+  }
 
-db.query(sql,[name,email,password,mobile,gender],(err,result)=>{
+  // check email exists
+  const checkSql = "SELECT * FROM users WHERE email=?";
 
-if(err){
- return res.send(err);
-}
+  db.query(checkSql, [email], (err, result) => {
+    if (err) {
+      console.log(err);
+      return res.json({ success: false });
+    }
 
-res.json({message:"User Registered Successfully"});
+    if (result.length > 0) {
+      return res.json({ success: false, message: "Email already exists" });
+    }
+
+    // insert user
+    const sql = "INSERT INTO users(name,email,password,mobile,gender) VALUES(?,?,?,?,?)";
+
+    db.query(sql, [name, email, password, mobile, gender], (err, result) => {
+      if (err) {
+        console.log(err);
+        return res.json({ success: false });
+      }
+
+      res.json({ success: true, message: "User Registered Successfully" });
+    });
+
+  });
 
 });
 
-});
 
+// USER LOGIN
+router.post("/login", (req, res) => {
 
-router.post("/login",(req,res)=>{
+  const { email, password } = req.body;
 
-const {email,password} = req.body;
+  const sql = "SELECT * FROM users WHERE email=?";
 
-const sql = "SELECT * FROM users WHERE email=? AND password=?";
+  db.query(sql, [email], (err, result) => {
 
-db.query(sql,[email,password],(err,result)=>{
+    if (err) {
+      console.log(err);
+      return res.json({ login: false });
+    }
 
-if(err){
- return res.send(err);
-}
+    if (result.length === 0) {
+      return res.json({ login: false });
+    }
 
-if(result.length > 0){
- res.json({login:true,user:result[0]});
-}else{
- res.json({login:false});
-}
+    if (result[0].password === password) {
+      res.json({ login: true, user: result[0] });
+    } else {
+      res.json({ login: false });
+    }
 
-});
+  });
 
 });
 
