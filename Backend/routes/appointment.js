@@ -25,16 +25,16 @@ res.json(result)
 // book doctor
 router.post("/book",(req,res)=>{
 
-const {doctor_id,doctor_name,patient_name,patient_email} = req.body;
+const {doctor_id,doctor_name,patient_name,patient_email,fees} = req.body;
 
 const sql = `
 INSERT INTO appointments
-(doctor_id,doctor_name,patient_name,patient_email,status)
-VALUES (?,?,?,?,?)
+(doctor_id,doctor_name,patient_name,patient_email,fees,status)
+VALUES (?,?,?,?,?,?)
 `;
 
 db.query(sql,
-[doctor_id,doctor_name,patient_name,patient_email,"booked"],
+[doctor_id,doctor_name,patient_name,patient_email,fees,"booked"],
 (err,result)=>{
 
 if(err){
@@ -124,6 +124,18 @@ router.put("/reject/:id", (req, res) => {
       res.send("Database Error");
     } else {
       res.send("Appointment Rejected");
+    }
+  });
+});
+
+router.put("/payment-success/:id", (req, res) => {
+  const sql = "UPDATE appointments SET payment_status='paid' WHERE id=?";
+
+  db.query(sql, [req.params.id], (err, result) => {
+    if (err) {
+      res.send("Database Error");
+    } else {
+      res.send("Payment Updated");
     }
   });
 });

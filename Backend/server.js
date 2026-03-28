@@ -17,6 +17,7 @@ app.use("/uploads", express.static("uploads"));
 app.use("/api", doctorRoutes);
 app.use("/api/user",userRouter);
 app.use("/api/appointment",appointmentRoutes);
+app.use("/api/payment", require("./routes/payment"));
 
 app.listen(5000,()=>{
 console.log("Server running on port 5000");
