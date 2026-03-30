@@ -6,6 +6,7 @@ import Navbar from './componet/Navbar';
 import HeroSection from './componet/HeroSection';
 import DoctorRegister from './componet/DoctorRegister';
 import DoctorLogin from './componet/DoctorLogin';
+import VideoCall from './page/VideoCall';
 
 function App() {
 
@@ -17,6 +18,7 @@ function App() {
     <Route path='/register' element={<DoctorRegister/>}/>
     <Route path='/login' element={<DoctorLogin/>}/>
    <Route path='/' element={<HeroSection/>}/>
+   <Route path="/video/:roomId" element={<VideoCall />} />
    </Routes>
    </BrowserRouter>
    </>

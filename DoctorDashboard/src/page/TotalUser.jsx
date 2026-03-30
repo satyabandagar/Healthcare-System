@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import "./TotalUser.css";
 
 function TotalUser() {
@@ -7,6 +8,7 @@ function TotalUser() {
   const [appointments, setAppointments] = useState([]);
 
   const doctorId = 1;
+  const navigate = useNavigate();
 
   const loadData = () => {
     // Total unique patients
@@ -76,6 +78,7 @@ function TotalUser() {
               <th>Status</th>
               <th>Payment</th>
               <th>Action</th>
+              <th>Contact</th>
             </tr>
           </thead>
 
@@ -88,7 +91,6 @@ function TotalUser() {
 
                 <td>{item.patient_email}</td>
 
-                
                 <td>
                   <span
                     style={{
@@ -96,10 +98,10 @@ function TotalUser() {
                         item.status === "accepted"
                           ? "green"
                           : item.status === "rejected"
-                            ? "red"
-                            : item.status === "cancelled"
-                              ? "gray"
-                              : "orange",
+                          ? "red"
+                          : item.status === "cancelled"
+                          ? "gray"
+                          : "orange",
                       fontWeight: "bold",
                     }}
                   >
@@ -107,7 +109,6 @@ function TotalUser() {
                   </span>
                 </td>
 
-                
                 <td>
                   {item.payment_status === "paid" ? (
                     <span style={{ color: "green", fontWeight: "bold" }}>
@@ -118,9 +119,7 @@ function TotalUser() {
                   )}
                 </td>
 
-                
                 <td>
-                  
                   <button
                     onClick={() => handleAccept(item.id)}
                     style={{
@@ -129,8 +128,6 @@ function TotalUser() {
                       color: "white",
                       width: "80px",
                       height: "30px",
-                      display: "flex",
-                      alignItems: "center",
                     }}
                   >
                     Accept
@@ -138,7 +135,6 @@ function TotalUser() {
 
                   <br />
 
-                  
                   {item.payment_status !== "paid" && (
                     <button
                       onClick={() => handleReject(item.id)}
@@ -148,13 +144,25 @@ function TotalUser() {
                         color: "white",
                         width: "80px",
                         height: "30px",
-                        display: "flex",
-                        alignItems: "center",
                       }}
                     >
                       Reject
                     </button>
                   )}
+                </td>
+
+                <td>
+                  <button
+                    onClick={() => navigate(`/video/${item.id}`)}
+                    style={{
+                      background: "blue",
+                      color: "white",
+                      width: "120px",
+                      height: "30px",
+                    }}
+                  >
+                    Contact Patient
+                  </button>
                 </td>
               </tr>
             ))}

@@ -140,4 +140,34 @@ router.put("/payment-success/:id", (req, res) => {
   });
 });
 
+router.put("/videoAccept/:id", (req, res) => {
+  const id = req.params.id;
+
+  const meeting_link = "http://localhost:5173/video/" + id;
+
+  const sql = `
+  UPDATE appointments 
+  SET status='accepted', meeting_link=? 
+  WHERE id=?
+  `;
+
+  db.query(sql, [meeting_link, id], (err, result) => {
+    if (err) return res.send(err);
+    res.send("Appointment Accepted");
+  });
+});
+
+router.get("/appointment-info/:id", (req, res) => {
+  const id = req.params.id;
+
+  db.query(
+    "SELECT doctor_name, patient_name FROM appointments WHERE id = ?",
+    [id],
+    (err, result) => {
+      if (err) return res.send(err);
+      res.send(result[0]);
+    }
+  );
+});
+
 module.exports = router;
