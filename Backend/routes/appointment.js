@@ -25,16 +25,16 @@ res.json(result)
 // book doctor
 router.post("/book",(req,res)=>{
 
-const {doctor_id,doctor_name,patient_name,patient_email,fees} = req.body;
+const {doctor_id,doctor_name,patient_name,patient_email,fees,appointment_date} = req.body;
 
 const sql = `
 INSERT INTO appointments
-(doctor_id,doctor_name,patient_name,patient_email,fees,status)
-VALUES (?,?,?,?,?,?)
+(doctor_id,doctor_name,patient_name,patient_email,fees,appointment_date,status)
+VALUES (?,?,?,?,?,?,?)
 `;
 
 db.query(sql,
-[doctor_id,doctor_name,patient_name,patient_email,fees,"booked"],
+[doctor_id,doctor_name,patient_name,patient_email,fees,appointment_date,"booked"],
 (err,result)=>{
 
 if(err){

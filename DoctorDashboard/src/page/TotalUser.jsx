@@ -7,7 +7,7 @@ function TotalUser() {
   const [bookings, setBookings] = useState(0);
   const [appointments, setAppointments] = useState([]);
 
-  const doctorId = 1;
+  const doctorId = 14;
   const navigate = useNavigate();
 
   const loadData = () => {
@@ -75,6 +75,7 @@ function TotalUser() {
             <tr>
               <th>Patient Name</th>
               <th>Email</th>
+              <th>Date</th>
               <th>Status</th>
               <th>Payment</th>
               <th>Action</th>
@@ -90,6 +91,9 @@ function TotalUser() {
                 </td>
 
                 <td>{item.patient_email}</td>
+                <td>
+                  {new Date(item.appointment_date).toLocaleString("en-IN")}
+                </td>
 
                 <td>
                   <span
@@ -98,10 +102,10 @@ function TotalUser() {
                         item.status === "accepted"
                           ? "green"
                           : item.status === "rejected"
-                          ? "red"
-                          : item.status === "cancelled"
-                          ? "gray"
-                          : "orange",
+                            ? "red"
+                            : item.status === "cancelled"
+                              ? "gray"
+                              : "orange",
                       fontWeight: "bold",
                     }}
                   >

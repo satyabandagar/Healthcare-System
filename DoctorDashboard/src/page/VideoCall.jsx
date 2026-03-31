@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import io from "socket.io-client";
+import "./VideoCall.css";
 
 const socket = io("http://localhost:5000");
 
@@ -16,30 +17,26 @@ function VideoCall() {
 
     socket.emit("join-room", roomId);
 
-    const receiveHandler = (data) => {
-      setChat((prev) => [...prev, data]);
-    };
-
-    socket.on("receive-message", receiveHandler);
+    // remove old listeners
+    socket.off("user-online");
+    socket.off("receive-message");
 
     socket.on("user-online", () => {
       setOnline(true);
     });
 
-     fetch(`http://localhost:5000/api/appointment/appointment-info/${roomId}`)
-  .then((res) => res.json())
-  .then((data) => setPatientName(data.patient_name));
+    socket.on("receive-message", (data) => {
+      setChat((prev) => [...prev, data]);
+    });
 
-    return () => {
-      socket.off("receive-message", receiveHandler);
-      socket.off("user-online");
-    };
+    fetch(`http://localhost:5000/api/appointment/appointment-info/${roomId}`)
+      .then((res) => res.json())
+      .then((data) => setPatientName(data.patient_name));
   }, [roomId]);
 
- 
-  
-
   const sendMessage = () => {
+    if (!message) return;
+
     socket.emit("send-message", {
       room: roomId,
       message: message,
@@ -49,33 +46,71 @@ function VideoCall() {
     setMessage("");
   };
 
+  useEffect(() => {
+    const chatBox = document.getElementById("chatBox");
+    if (chatBox) {
+      chatBox.scrollTop = chatBox.scrollHeight;
+    }
+  }, [chat]);
+
   return (
-    <div style={{ padding: "20px" }}>
-      <h2>Patient: {patientName}</h2>
+    <div className="VideoCall">
+      <div style={{ padding: "20px" }} className="chatMsg">
+        <div className="DoctorMsg">
+          <div className="" style={{ height: "50px" }}>
+            <div className="VideoTop">
+              <h2 style={{display:"block", marginBottom:"15px"}}> {patientName}</h2>
 
-      {online ? (
-        <h3 style={{ color: "green" }}>User Online 🟢</h3>
-      ) : (
-        <h3 style={{ color: "red" }}>Waiting for User... 🔴</h3>
-      )}
+              {online ? (
+                <h3 style={{ color: "green", display: "block" }}> Online 🟢</h3>
+              ) : (
+                <h3 style={{ color: "red" }}> 🔴</h3>
+              )}
+              <div className="videoIcon">
+                <i class="fa-solid fa-phone" style={{cursor:"pointer"}}></i>
 
-      <div
-        style={{
-          border: "1px solid black",
-          height: "200px",
-          width: "300px",
-          overflow: "auto",
-        }}
-      >
-        {chat.map((msg, i) => (
-          <p key={i}>
-            <b>{msg.sender === socket.id ? "Me" : "User"}:</b> {msg.message}
-          </p>
-        ))}
+                <i
+                  class="fa-solid fa-video"
+                  style={{ marginRight: "20px",cursor:"pointer"}}
+                ></i>
+              </div>
+             
+            </div>
+             <hr />
+          </div>
+
+          <div
+            id="chatBox"
+            style={{
+              height: "450px",
+              width: "500px",
+              overflow: "auto",
+              padding: "10px",
+              marginTop:"20px"
+            
+            }}
+          >
+            {chat.map((msg, i) => (
+              <p
+                key={i}
+                className={msg.sender === socket.id ? "myMsg" : "userMsg"}
+              >
+                <b>{msg.sender === socket.id ? "Me" : "Dr"}:</b> {msg.message}
+              </p>
+            ))}
+          </div>
+           <p style={{backgroundColor:"black",width:"100%",height:"1px",position:"relative",top:"20px"}}>-</p>
+          <div className="" style={{width:"100%"}}>
+            <div className="UserMsg">
+            <input
+              value={message}
+              onChange={(e) => setMessage(e.target.value)}
+            />
+            <i class="fa-solid fa-paper-plane" onClick={sendMessage} style={{color:"#1ee00d",cursor:"pointer",marginRight:"10px"}}></i>
+          </div>
+          </div>
+        </div>
       </div>
-
-      <input value={message} onChange={(e) => setMessage(e.target.value)} />
-      <button onClick={sendMessage}>Send</button>
     </div>
   );
 }

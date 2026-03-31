@@ -50,7 +50,8 @@ function DoctorRegister() {
     <div className="container mt-4">
       <h2>Doctor Register</h2>
 
-      <form onSubmit={handleSubmit}>
+     <div className="" style={{height:"100vh", backgroundColor:"red"}}>
+       <form onSubmit={handleSubmit}>
         <div className="">
           <label htmlFor="name">Full Name</label>
           <input
@@ -151,6 +152,7 @@ function DoctorRegister() {
         <br />
         <a href="/login" style={{width:"100px", height:"50px", backgroundColor:"#1b722266", color:"black", display:"flex", alignItems:"center",justifyContent:"center",fontSize:"25px", marginBottom:"100px", borderRadius:"20px"}}>LogIn</a>
       </form>
+     </div>
     </div>
   );
 }
