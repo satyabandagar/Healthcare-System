@@ -7,6 +7,9 @@ function TotalUser() {
   const [bookings, setBookings] = useState(0);
   const [appointments, setAppointments] = useState([]);
 
+  const doctor = JSON.parse(localStorage.getItem("doctor"));
+// const doctorId = doctor.id;
+
   const doctorId = 14;
   const navigate = useNavigate();
 

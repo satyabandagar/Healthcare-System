@@ -74,6 +74,8 @@ function VideoCall() {
                   style={{ marginRight: "20px",cursor:"pointer"}}
                 ></i>
               </div>
+
+              
              
             </div>
              <hr />
@@ -111,6 +113,7 @@ function VideoCall() {
           </div>
         </div>
       </div>
+      
     </div>
   );
 }
