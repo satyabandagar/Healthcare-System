@@ -8,9 +8,8 @@ function TotalUser() {
   const [appointments, setAppointments] = useState([]);
 
   const doctor = JSON.parse(localStorage.getItem("doctor"));
-// const doctorId = doctor.id;
+  const doctorId = doctor?._id;
 
-  const doctorId = 14;
   const navigate = useNavigate();
 
   const loadData = () => {
@@ -119,7 +118,7 @@ function TotalUser() {
                 <td>
                   {item.payment_status === "paid" ? (
                     <span style={{ color: "green", fontWeight: "bold" }}>
-                      Payment Successful ✅
+                      Payment ✅
                     </span>
                   ) : (
                     <span style={{ color: "gray" }}>Payment Pending</span>

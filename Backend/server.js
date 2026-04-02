@@ -49,6 +49,23 @@ io.on("connection", (socket) => {
   io.to(data.room).emit("receive-message", data);
 });
 
+socket.on("offer", (data) => {
+    socket.to(data.room).emit("offer", data);
+  });
+
+  socket.on("answer", (data) => {
+    socket.to(data.room).emit("answer", data);
+  });
+
+  socket.on("ice-candidate", (data) => {
+    socket.to(data.room).emit("ice-candidate", data);
+  });
+
+  socket.on("video-call-request", (data) => {
+    socket.to(data.room).emit("incoming-video-call", {
+      from: data.from,
+    })});
+
   socket.on("disconnect", () => {
     console.log("User Disconnected");
   });

@@ -10,7 +10,7 @@ function VideoCall() {
   const [online, setOnline] = useState(false);
   const [message, setMessage] = useState("");
   const [chat, setChat] = useState([]);
-   const [patientName, setPatientName] = useState("");
+  const [patientName, setPatientName] = useState("");
 
   useEffect(() => {
     if (!roomId) return;
@@ -53,13 +53,62 @@ function VideoCall() {
     }
   }, [chat]);
 
+  let localStream;
+  let peerConnection;
+
+ const startVideoCall = async () => {
+  // Send notification to patient first
+  socket.emit("video-call-request", {
+    room: roomId,
+    from: "Doctor",
+  });
+
+  // then start camera
+  localStream = await navigator.mediaDevices.getUserMedia({
+    video: true,
+    audio: true,
+  });
+
+  document.getElementById("localVideo").srcObject = localStream;
+
+  peerConnection = new RTCPeerConnection();
+
+  localStream.getTracks().forEach((track) => {
+    peerConnection.addTrack(track, localStream);
+  });
+
+  peerConnection.ontrack = (event) => {
+    document.getElementById("remoteVideo").srcObject = event.streams[0];
+  };
+
+  peerConnection.onicecandidate = (event) => {
+    if (event.candidate) {
+      socket.emit("ice-candidate", {
+        room: roomId,
+        candidate: event.candidate,
+      });
+    }
+  };
+
+  const offer = await peerConnection.createOffer();
+  await peerConnection.setLocalDescription(offer);
+
+  socket.emit("offer", {
+    room: roomId,
+    offer: offer,
+  });
+};
+
   return (
     <div className="VideoCall">
       <div style={{ padding: "20px" }} className="chatMsg">
         <div className="DoctorMsg">
           <div className="" style={{ height: "50px" }}>
             <div className="VideoTop">
-              <h2 style={{display:"block", marginBottom:"15px"}}> {patientName}</h2>
+              <h2 style={{ display: "block", marginBottom: "15px" }}>
+                {" "}
+                {patientName}
+              </h2>
 
               {online ? (
                 <h3 style={{ color: "green", display: "block" }}> Online 🟢</h3>
@@ -67,18 +116,16 @@ function VideoCall() {
                 <h3 style={{ color: "red" }}> 🔴</h3>
               )}
               <div className="videoIcon">
-                <i class="fa-solid fa-phone" style={{cursor:"pointer"}}></i>
+                <i class="fa-solid fa-phone" style={{ cursor: "pointer" }}></i>
 
                 <i
                   class="fa-solid fa-video"
-                  style={{ marginRight: "20px",cursor:"pointer"}}
+                  style={{ marginRight: "20px", cursor: "pointer" }}
+                  onClick={startVideoCall}
                 ></i>
               </div>
-
-              
-             
             </div>
-             <hr />
+            <hr />
           </div>
 
           <div
@@ -88,10 +135,13 @@ function VideoCall() {
               width: "500px",
               overflow: "auto",
               padding: "10px",
-              marginTop:"20px"
-            
+              marginTop: "20px",
             }}
           >
+            <div style={{ display: "flex", gap: "10px", marginTop: "10px" }}>
+              <video id="localVideo" autoPlay playsInline width="200"></video>
+              <video id="remoteVideo" autoPlay playsInline width="200"></video>
+            </div>
             {chat.map((msg, i) => (
               <p
                 key={i}
@@ -101,19 +151,36 @@ function VideoCall() {
               </p>
             ))}
           </div>
-           <p style={{backgroundColor:"black",width:"100%",height:"1px",position:"relative",top:"20px"}}>-</p>
-          <div className="" style={{width:"100%"}}>
+          <p
+            style={{
+              backgroundColor: "black",
+              width: "100%",
+              height: "1px",
+              position: "relative",
+              top: "20px",
+            }}
+          >
+            -
+          </p>
+          <div className="" style={{ width: "100%" }}>
             <div className="UserMsg">
-            <input
-              value={message}
-              onChange={(e) => setMessage(e.target.value)}
-            />
-            <i class="fa-solid fa-paper-plane" onClick={sendMessage} style={{color:"#1ee00d",cursor:"pointer",marginRight:"10px"}}></i>
-          </div>
+              <input
+                value={message}
+                onChange={(e) => setMessage(e.target.value)}
+              />
+              <i
+                class="fa-solid fa-paper-plane"
+                onClick={sendMessage}
+                style={{
+                  color: "#1ee00d",
+                  cursor: "pointer",
+                  marginRight: "10px",
+                }}
+              ></i>
+            </div>
           </div>
         </div>
       </div>
-      
     </div>
   );
 }
