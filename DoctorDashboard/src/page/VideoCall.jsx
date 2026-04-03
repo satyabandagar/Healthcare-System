@@ -147,7 +147,7 @@ function VideoCall() {
                 key={i}
                 className={msg.sender === socket.id ? "myMsg" : "userMsg"}
               >
-                <b>{msg.sender === socket.id ? "Me" : "Dr"}:</b> {msg.message}
+                <b>{msg.sender === socket.id ? "Dr" : "Pt"}:</b> {msg.message}
               </p>
             ))}
           </div>
