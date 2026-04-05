@@ -139,6 +139,7 @@ function VideoCall() {
             }}
           >
             <div style={{ display: "flex", gap: "10px", marginTop: "10px" }}>
+              
               <video id="localVideo" autoPlay playsInline width="200"></video>
               <video id="remoteVideo" autoPlay playsInline width="200"></video>
             </div>

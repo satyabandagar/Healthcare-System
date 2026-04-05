@@ -61,6 +61,10 @@ socket.on("offer", (data) => {
     socket.to(data.room).emit("ice-candidate", data);
   });
 
+  socket.on("end-call", (data) => {
+    socket.to(data.room).emit("end-call");
+  });
+
   socket.on("video-call-request", (data) => {
     socket.to(data.room).emit("incoming-video-call", {
       from: data.from,
