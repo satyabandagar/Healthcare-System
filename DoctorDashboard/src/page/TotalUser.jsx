@@ -63,6 +63,9 @@ function TotalUser() {
         <div className="totalbooking">
           <h1 className="booked">Total Bookings: {bookings}</h1>
         </div>
+        <div className="Prescription">
+          <button style={{backgroundColor:"#333"}}>Prescription</button>
+        </div>
       </div>
 
       <hr style={{ marginTop: "50px" }} />

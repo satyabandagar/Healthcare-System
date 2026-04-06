@@ -182,6 +182,7 @@ function VideoCall() {
           </div>
         </div>
       </div>
+      <a href="/" style={{position:"relative", right:"700px",top:"280px", width:"100px",height:"40px",borderRadius:"10px", backgroundColor:"#333",display:"flex",alignItems:"center",justifyContent:"center", fontSize:"20px",color:"white"}}>Back</a>
     </div>
   );
 }

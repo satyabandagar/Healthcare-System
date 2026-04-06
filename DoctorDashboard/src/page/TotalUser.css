@@ -6,8 +6,20 @@
 .totalB{
     display: flex;
     gap: 50px;
-    width: 600px;
+    width: 900px;
     margin-left: 100px;
+    
+}
+.Prescription{
+  width: 200px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.Prescription button{
+  width: 150px;
+  height: 100%;
 }
 .totalpatients{
     width: 50%;
