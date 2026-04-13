@@ -69,4 +69,32 @@ router.post("/login", (req, res) => {
 
 });
 
+
+router.get("/profile/:id", (req, res) => {
+  const { id } = req.params;
+
+  const sql = `
+    SELECT id, name, email, mobile, gender
+    FROM users
+    WHERE id = ?
+  `;
+
+  db.query(sql, [id], (err, result) => {
+    if (err) {
+      return res.status(500).json({
+        message: "Database Error",
+        error: err,
+      });
+    }
+
+    if (result.length === 0) {
+      return res.status(404).json({
+        message: "User Not Found",
+      });
+    }
+
+    res.json(result[0]);
+  });
+});
+
 module.exports = router;
