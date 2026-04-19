@@ -1,0 +1,18 @@
+.outerAbout{
+    margin-top: 100px;
+    width: 96%;
+    margin-left: 25px;
+    border-radius: 15px;
+    background-image: linear-gradient(to Right, #918d8da6,rgba(205, 205, 205, 0.695),#8f88888a);
+    height: 600px;
+}
+.about{
+    display: flex;
+    gap: 20px;
+}
+h1{
+    margin-left: 30px;
+}
+p{
+    margin-left: 30px;
+}
