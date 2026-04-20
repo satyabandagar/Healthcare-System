@@ -3,7 +3,10 @@ import React from 'react'
 function Countact() {
   return (
     <div>
-      contact
+      <div className="">
+        <div className=""></div>
+        <div className=""></div>
+      </div>
     </div>
   )
 }
