@@ -50,109 +50,128 @@ function DoctorRegister() {
     <div className="container mt-4">
       <h2>Doctor Register</h2>
 
-     <div className="" style={{height:"100vh", backgroundColor:"red"}}>
-       <form onSubmit={handleSubmit}>
-        <div className="">
-          <label htmlFor="name">Full Name</label>
-          <input
-            name="name"
-            placeholder="Doctor Name"
-            onChange={handleChange}
-            className="form-control mb-2"
-          />
-          <br />
-          <label htmlFor="email">Gmail</label>
-          <input
-            name="email"
-            placeholder="Email"
-            onChange={handleChange}
-            className="form-control mb-2"
-          />
-          <br />
-          <label htmlFor="password">Password</label>
-          <input
-            name="password"
-            type="password"
-            placeholder="Password"
-            onChange={handleChange}
-            className="form-control mb-2"
-          />
-          <br />
-          <label htmlFor="speciality">Speciality</label>
-          <input
-            name="speciality"
-            placeholder="Speciality"
-            onChange={handleChange}
-            className="form-control mb-2"
-          />
-          <br />
-          <label htmlFor="degree">Degree</label>
-          <input
-            name="degree"
-            placeholder="Degree"
-            onChange={handleChange}
-            className="form-control mb-2"
-          />
-          <br />
-          <label htmlFor="experience">Experience</label>
-          <input
-            name="experience"
-            placeholder="Experience"
-            onChange={handleChange}
-            className="form-control mb-2"
-          />
-          <br />
-          <label htmlFor="fees">Fees</label>
-          <input
-            name="fees"
-            placeholder="Fees"
-            onChange={handleChange}
-            className="form-control mb-2"
-          />
-          <br />
-          <label htmlFor="line1">Address line first</label>
-          <input
-            name="line1"
-            placeholder="Address Line 1"
-            onChange={handleChange}
-            className="form-control mb-2"
-          />
-          <br />
-          <label htmlFor="line2">Address line 2nd</label>
-          <input
-            name="line2"
-            placeholder="Address Line 2"
-            onChange={handleChange}
-            className="form-control mb-2"
-          />
-          <br />
-          <div className="">
-            <label htmlFor="about" style={{display:"block"}}>About</label>
-            <textarea style={{width:"500px"}}
-              name="about"
-              placeholder="About Doctor"
-              onChange={handleChange}
-              className="form-control mb-2"
-            ></textarea>
-          </div>
-          <br />
-          <div className="">
-            <label htmlFor="file">Upload Img</label>
-            <input
-              type="file"
-              onChange={(e) => setImage(e.target.files[0])}
-              className="form-control mb-2"
-            />
-          </div>
+      <div className="">
+        <form onSubmit={handleSubmit}>
+          <div className="DoctorrRegiter">
+            <div className="RegBasic">
+              <label htmlFor="name">Full Name</label>
+              <input
+                name="name"
+                placeholder="Doctor Name"
+                onChange={handleChange}
+                
+              />
+              <label htmlFor="email">Gmail</label>
+              <input
+                name="email"
+                placeholder="Email"
+                onChange={handleChange}
+               
+              />
+              <label htmlFor="password">Password</label>
+              <input
+                name="password"
+                type="password"
+                placeholder="Password"
+                onChange={handleChange}
+                
+              />
+            </div>
 
-          <button className="btn btn-primary" style={{backgroundColor:"rgba(55, 218, 49, 0.76)"}}>Register</button>
-        </div>
-        <br />
-        <p>OR</p>
-        <br />
-        <a href="/login" style={{width:"100px", height:"50px", backgroundColor:"#1b722266", color:"black", display:"flex", alignItems:"center",justifyContent:"center",fontSize:"25px", marginBottom:"100px", borderRadius:"20px"}}>LogIn</a>
-      </form>
-     </div>
+            <div className="RegMind">
+              <label htmlFor="speciality">Speciality</label>
+              <input
+                name="speciality"
+                placeholder="Speciality"
+                onChange={handleChange}
+                
+              />
+              <label htmlFor="degree">Degree</label>
+              <input
+                name="degree"
+                placeholder="Degree"
+                onChange={handleChange}
+                
+              />
+              <label htmlFor="experience">Experience</label>
+              <input
+                name="experience"
+                placeholder="Experience"
+                onChange={handleChange}
+                
+              />
+            </div>
+
+            <div className="regAddrece">
+              <label htmlFor="fees">Fees</label>
+              <input
+                name="fees"
+                placeholder="Fees"
+                onChange={handleChange}
+                
+              />
+              <label htmlFor="line1">Address line first</label>
+              <input
+                name="line1"
+                placeholder="Address Line 1"
+                onChange={handleChange}
+               
+              />
+              <label htmlFor="line2">Address line 2nd</label>
+              <input
+                name="line2"
+                placeholder="Address Line 2"
+                onChange={handleChange}
+                
+              />
+            </div>
+            <div className="RegFee">
+              <label htmlFor="about">
+                About
+              </label>
+              <textarea
+                name="about"
+                placeholder="About Doctor"
+                onChange={handleChange}
+                
+              ></textarea>
+              <label htmlFor="file">Upload Img</label>
+              <input
+                type="file"
+                onChange={(e) => setImage(e.target.files[0])}
+                className=""
+              />
+            </div>
+
+            <div className="Regbtn">
+              <button
+                className="btn btn-primary"
+                style={{ backgroundColor: "rgba(55, 218, 49, 0.76)" }}
+              >
+                Register
+              </button>
+              <p>OR</p>
+              <a
+                href="/login"
+                style={{
+                  width: "100px",
+                  height: "50px",
+                  backgroundColor: "#1b722266",
+                  color: "black",
+                  display: "flex",
+                  alignItems: "center",
+                  justifyContent: "center",
+                  fontSize: "25px",
+                  marginBottom: "100px",
+                  borderRadius: "20px",
+                }}
+              >
+                LogIn
+              </a>
+            </div>
+          </div>
+        </form>
+      </div>
     </div>
   );
 }
