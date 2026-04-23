@@ -47,131 +47,91 @@ function DoctorRegister() {
   };
 
   return (
-    <div className="container mt-4">
-      <h2>Doctor Register</h2>
+    <div className="" style={{marginTop:"100px", width:"96%",marginLeft:"25px",backgroundColor:"#b3b0b0bf",borderRadius:"15px", padding:"20px"}}>
+      <h2 style={{display:"flex", alignItems:"center", justifyContent:"center"}}>Doctor Register</h2>
 
-      <div className="">
-        <form onSubmit={handleSubmit}>
-          <div className="DoctorrRegiter">
-            <div className="RegBasic">
-              <label htmlFor="name">Full Name</label>
-              <input
-                name="name"
-                placeholder="Doctor Name"
-                onChange={handleChange}
-                
-              />
-              <label htmlFor="email">Gmail</label>
-              <input
-                name="email"
-                placeholder="Email"
-                onChange={handleChange}
-               
-              />
-              <label htmlFor="password">Password</label>
-              <input
-                name="password"
-                type="password"
-                placeholder="Password"
-                onChange={handleChange}
-                
-              />
-            </div>
+      <div className="container">
+  <form onSubmit={handleSubmit} className="form">
+    
+    <div className="doctor-register">
 
-            <div className="RegMind">
-              <label htmlFor="speciality">Speciality</label>
-              <input
-                name="speciality"
-                placeholder="Speciality"
-                onChange={handleChange}
-                
-              />
-              <label htmlFor="degree">Degree</label>
-              <input
-                name="degree"
-                placeholder="Degree"
-                onChange={handleChange}
-                
-              />
-              <label htmlFor="experience">Experience</label>
-              <input
-                name="experience"
-                placeholder="Experience"
-                onChange={handleChange}
-                
-              />
-            </div>
+     
+      <div className="form-row">
+        <div className="form-group">
+          <label>Full Name</label>
+          <input name="name" placeholder="Doctor Name" onChange={handleChange} />
+        </div>
 
-            <div className="regAddrece">
-              <label htmlFor="fees">Fees</label>
-              <input
-                name="fees"
-                placeholder="Fees"
-                onChange={handleChange}
-                
-              />
-              <label htmlFor="line1">Address line first</label>
-              <input
-                name="line1"
-                placeholder="Address Line 1"
-                onChange={handleChange}
-               
-              />
-              <label htmlFor="line2">Address line 2nd</label>
-              <input
-                name="line2"
-                placeholder="Address Line 2"
-                onChange={handleChange}
-                
-              />
-            </div>
-            <div className="RegFee">
-              <label htmlFor="about">
-                About
-              </label>
-              <textarea
-                name="about"
-                placeholder="About Doctor"
-                onChange={handleChange}
-                
-              ></textarea>
-              <label htmlFor="file">Upload Img</label>
-              <input
-                type="file"
-                onChange={(e) => setImage(e.target.files[0])}
-                className=""
-              />
-            </div>
+        <div className="form-group">
+          <label>Gmail</label>
+          <input name="email" placeholder="Email" onChange={handleChange} />
+        </div>
 
-            <div className="Regbtn">
-              <button
-                className="btn btn-primary"
-                style={{ backgroundColor: "rgba(55, 218, 49, 0.76)" }}
-              >
-                Register
-              </button>
-              <p>OR</p>
-              <a
-                href="/login"
-                style={{
-                  width: "100px",
-                  height: "50px",
-                  backgroundColor: "#1b722266",
-                  color: "black",
-                  display: "flex",
-                  alignItems: "center",
-                  justifyContent: "center",
-                  fontSize: "25px",
-                  marginBottom: "100px",
-                  borderRadius: "20px",
-                }}
-              >
-                LogIn
-              </a>
-            </div>
-          </div>
-        </form>
+        <div className="form-group">
+          <label>Password</label>
+          <input name="password" type="password" placeholder="Password" onChange={handleChange} />
+        </div>
       </div>
+
+      
+      <div className="form-row">
+        <div className="form-group">
+          <label>Speciality</label>
+          <input name="speciality" placeholder="Speciality" onChange={handleChange} />
+        </div>
+
+        <div className="form-group">
+          <label>Degree</label>
+          <input name="degree" placeholder="Degree" onChange={handleChange} />
+        </div>
+
+        <div className="form-group">
+          <label>Experience</label>
+          <input name="experience" placeholder="Experience" onChange={handleChange} />
+        </div>
+      </div>
+
+     
+      <div className="form-row">
+        <div className="form-group">
+          <label>Fees</label>
+          <input name="fees" placeholder="Fees" onChange={handleChange} />
+        </div>
+
+        <div className="form-group">
+          <label>Address Line 1</label>
+          <input name="line1" placeholder="Address Line 1" onChange={handleChange} />
+        </div>
+
+        <div className="form-group">
+          <label>Address Line 2</label>
+          <input name="line2" placeholder="Address Line 2" onChange={handleChange} />
+        </div>
+      </div>
+
+     
+      <div className="form-row">
+        <div className="form-group full">
+          <label style={{marginBottom:"10px"}}>About</label>
+          <textarea name="about" placeholder="About Doctor" onChange={handleChange}></textarea>
+        </div>
+
+        <div className="form-group full">
+          <label>Upload Image</label>
+          <input type="file" onChange={(e) => setImage(e.target.files[0])} />
+        </div>
+      </div>
+
+      
+      <div className="form-actions">
+        <button className="btn-submit">Register</button>
+        <p>OR</p>
+        <a href="/login" className="btn-login">Login</a>
+      </div>
+
+    </div>
+  </form>
+</div>
     </div>
   );
 }

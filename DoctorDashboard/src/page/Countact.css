@@ -1,17 +1,9 @@
-.DocContact{
-    width: 96%;
-    margin-left: 25px;
-    background-image: linear-gradient(to right,#b6b3b3aa,#bbbbbb91,rgba(191, 191, 191, 0.671));
-    height: 550px;
-    display: flex;
-    gap: 20px;
-    margin-top: 100px;
-    border-radius: 15px;
-}
+
 .DoctorHelp{
     padding: 20px;
 }
 .DoctorHelp label{
+    font-weight: bold;
     margin-right: 350px;
 }
 .DoctorHelp input{
@@ -19,6 +11,7 @@
     padding: 20px;
     font-size: 18px;
     border-radius: 10px;
+    width: 550px;
 }
 .DoctoDes{
     padding: 50px;
