@@ -7,6 +7,8 @@ const doctorRoutes = require("./routes/doctorRoutes");
 const userRouter = require("./routes/userRoutes");
 const appointmentRoutes = require("./routes/appointment");
 const paymentRoutes = require("./routes/payment");
+const contactRoutes = require("./routes/contactRoutes");
+
 
 const app = express();
 
@@ -19,6 +21,7 @@ app.use("/api", doctorRoutes);
 app.use("/api/user", userRouter);
 app.use("/api/appointment", appointmentRoutes);
 app.use("/api/payment", paymentRoutes);
+app.use("/api/contact", contactRoutes);
 
 const server = http.createServer(app);
 
