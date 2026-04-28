@@ -64,7 +64,7 @@ function TotalUser() {
           <h1 className="booked">Total Bookings: {bookings}</h1>
         </div>
         <div className="Prescription">
-          <a href=""><button style={{backgroundColor:"#333"}}>Prescription</button></a>
+          <a href="/Prescription"><button style={{backgroundColor:"#333"}}>Prescription</button></a>
         </div>
       </div>
 

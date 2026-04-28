@@ -9,6 +9,7 @@ import DoctorLogin from './componet/DoctorLogin';
 import VideoCall from './page/VideoCall';
 import About from './page/About';
 import Countact from './page/Countact';
+import Prescription from './page/Prescription';
 
 function App() {
 
@@ -22,6 +23,7 @@ function App() {
    <Route path='/' element={<HeroSection/>}/>
    <Route path='/about' element={<About/>}/>
    <Route path='/contact' element={<Countact/>}/>
+   <Route path='/Prescription' element={<Prescription/>}/>
    <Route path="/video/:roomId" element={<VideoCall />} />
    </Routes>
    </BrowserRouter>
