@@ -8,7 +8,7 @@ const userRouter = require("./routes/userRoutes");
 const appointmentRoutes = require("./routes/appointment");
 const paymentRoutes = require("./routes/payment");
 const contactRoutes = require("./routes/contactRoutes");
-
+const sendEmail = require("./utils/sendEmail");
 
 const app = express();
 
@@ -22,6 +22,15 @@ app.use("/api/user", userRouter);
 app.use("/api/appointment", appointmentRoutes);
 app.use("/api/payment", paymentRoutes);
 app.use("/api/contact", contactRoutes);
+
+app.post("/generate-prescription", async (req, res) => {
+
+  const filePath = "uploads/prescription123.pdf";
+
+  await sendEmail(req.body.email, filePath, req.body.name);
+
+  res.json({ message: "Sent" });
+});
 
 const server = http.createServer(app);
 

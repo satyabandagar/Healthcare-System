@@ -23,7 +23,7 @@ function App() {
    <Route path='/' element={<HeroSection/>}/>
    <Route path='/about' element={<About/>}/>
    <Route path='/contact' element={<Countact/>}/>
-   <Route path='/Prescription' element={<Prescription/>}/>
+   <Route path='/prescription' element={<Prescription/>}/>
    <Route path="/video/:roomId" element={<VideoCall />} />
    </Routes>
    </BrowserRouter>

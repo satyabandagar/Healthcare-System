@@ -13,17 +13,14 @@ function TotalUser() {
   const navigate = useNavigate();
 
   const loadData = () => {
-    // Total unique patients
     fetch(`http://localhost:5000/api/appointment/total-patients/${doctorId}`)
       .then((res) => res.json())
       .then((data) => setPatients(data.total));
 
-    // Total bookings
     fetch(`http://localhost:5000/api/appointment/total-bookings/${doctorId}`)
       .then((res) => res.json())
       .then((data) => setBookings(data.total));
 
-    // Doctor appointments list
     fetch(`http://localhost:5000/api/appointment/doctor/${doctorId}`)
       .then((res) => res.json())
       .then((data) => setAppointments(data));
@@ -33,7 +30,6 @@ function TotalUser() {
     loadData();
   }, []);
 
-  // Accept Appointment
   const handleAccept = async (id) => {
     await fetch(`http://localhost:5000/api/appointment/accept/${id}`, {
       method: "PUT",
@@ -43,7 +39,6 @@ function TotalUser() {
     loadData();
   };
 
-  // Reject Appointment
   const handleReject = async (id) => {
     await fetch(`http://localhost:5000/api/appointment/reject/${id}`, {
       method: "PUT",
@@ -63,8 +58,12 @@ function TotalUser() {
         <div className="totalbooking">
           <h1 className="booked">Total Bookings: {bookings}</h1>
         </div>
+
+        {/* ⚠️ Keep your button but REMOVE item.id from here */}
         <div className="Prescription">
-          <a href="/Prescription"><button style={{backgroundColor:"#333"}}>Prescription</button></a>
+          <button onClick={() => alert("Please click Prescription button in table below")}>
+            Prescription
+          </button>
         </div>
       </div>
 
@@ -85,17 +84,17 @@ function TotalUser() {
               <th>Payment</th>
               <th>Action</th>
               <th>Contact</th>
+              <th>Prescription</th> {/* ✅ ADDED */}
             </tr>
           </thead>
 
           <tbody>
             {appointments.map((item) => (
               <tr key={item.id}>
-                <td>
-                  <b>{item.patient_name}</b>
-                </td>
+                <td><b>{item.patient_name}</b></td>
 
                 <td>{item.patient_email}</td>
+
                 <td>
                   {new Date(item.appointment_date).toLocaleString("en-IN")}
                 </td>
@@ -107,10 +106,10 @@ function TotalUser() {
                         item.status === "accepted"
                           ? "green"
                           : item.status === "rejected"
-                            ? "red"
-                            : item.status === "cancelled"
-                              ? "gray"
-                              : "orange",
+                          ? "red"
+                          : item.status === "cancelled"
+                          ? "gray"
+                          : "orange",
                       fontWeight: "bold",
                     }}
                   >
@@ -129,50 +128,31 @@ function TotalUser() {
                 </td>
 
                 <td>
-                  <button
-                    onClick={() => handleAccept(item.id)}
-                    style={{
-                      margin: "5px",
-                      background: "green",
-                      color: "white",
-                      width: "80px",
-                      height: "30px",
-                    }}
-                  >
-                    Accept
-                  </button>
-
+                  <button onClick={() => handleAccept(item.id)}>Accept</button>
                   <br />
-
                   {item.payment_status !== "paid" && (
-                    <button
-                      onClick={() => handleReject(item.id)}
-                      style={{
-                        margin: "5px",
-                        background: "red",
-                        color: "white",
-                        width: "80px",
-                        height: "30px",
-                      }}
-                    >
-                      Reject
-                    </button>
+                    <button onClick={() => handleReject(item.id)}>Reject</button>
                   )}
                 </td>
 
                 <td>
-                  <button
-                    onClick={() => navigate(`/video/${item.id}`)}
-                    style={{
-                      background: "blue",
-                      color: "white",
-                      width: "120px",
-                      height: "30px",
-                    }}
-                  >
+                  <button onClick={() => navigate(`/video/${item.id}`)}>
                     Contact Patient
                   </button>
                 </td>
+
+                {/* ✅ CORRECT BUTTON HERE */}
+                <td>
+                  <button
+                    onClick={() =>
+                      navigate("/prescription", { state: { id: item.id } })
+                    }
+                    style={{ background: "#333", color: "white" }}
+                  >
+                    Prescription
+                  </button>
+                </td>
+
               </tr>
             ))}
           </tbody>

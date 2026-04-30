@@ -1,6 +1,10 @@
 const express = require("express");
 const router = express.Router();
+const nodemailer = require("nodemailer");
+const PDFDocument = require("pdfkit");
+const fs = require("fs");
 const db = require("../db");
+
 
 
 // routes/appointment.js
@@ -168,6 +172,68 @@ router.get("/appointment-info/:id", (req, res) => {
       res.send(result[0]);
     }
   );
+});
+
+
+router.post("/send-prescription/:id", (req, res) => {
+  const id = req.params.id;
+  const { doctorName, patientName, problems, solutions, advice } = req.body;
+
+  const sql = "SELECT * FROM appointments WHERE id=?";
+  
+  db.query(sql, [id], async (err, result) => {
+    if (err) return res.send(err);
+
+    const appointment = result[0];
+
+    // 📄 CREATE PDF
+    const doc = new PDFDocument();
+    const filePath = `prescription_${id}.pdf`;
+
+    doc.pipe(fs.createWriteStream(filePath));
+
+    doc.fontSize(18).text("Prescription", { align: "center" });
+
+    doc.text(`Doctor: ${doctorName}`);
+    doc.text(`Patient: ${patientName}`);
+
+    doc.text("\nProblems:");
+    problems.forEach((p, i) => doc.text(`${i + 1}. ${p}`));
+
+    doc.text("\nSolutions:");
+    solutions.forEach((s, i) => doc.text(`${i + 1}. ${s}`));
+
+    doc.text(`\nAdvice: ${advice}`);
+
+    doc.end();
+
+    // 📧 SEND EMAIL WITH PDF
+    const transporter = nodemailer.createTransport({
+      service: "gmail",
+      auth: {
+        user: "bandagarsatyappa91@gmail.com",
+        pass: "votc gvjb rnlo glnq",
+      },
+    });
+
+    const mailOptions = {
+      from: "bandagarsatyappa91@gmail.com",
+      to: appointment.patient_email,
+      subject: "Your Prescription PDF",
+      text: "Please find your prescription attached.",
+      attachments: [
+        {
+          filename: "prescription.pdf",
+          path: filePath,
+        },
+      ],
+    };
+
+    setTimeout(async () => {
+      await transporter.sendMail(mailOptions);
+      res.send("PDF Sent on Email ✅");
+    }, 2000);
+  });
 });
 
 module.exports = router;
