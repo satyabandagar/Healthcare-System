@@ -28,7 +28,6 @@ The project focuses on reducing the gap between patients and healthcare provider
 ## Frontend
 - React.js
 - CSS3
-- Bootstrap
 
 ## Backend
 - Node.js
@@ -109,9 +108,9 @@ npm start
 ```bash
 Healthcare-System/
 │
-├── Frontend/
+├── UserDashboard/
 ├── Backend/
-├── Screenshots/
+├── DoctorDashboard/
 ├── README.md
 ```
 
