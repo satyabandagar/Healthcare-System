@@ -1,8 +1,8 @@
-﻿# 🏥 Healthcare System – Telemedicine for Rural Areas
+﻿# 🏥 Telemedicine for Rural Healthcare Access
 
 ## 📌 Project Overview
 
-The **Healthcare System – Telemedicine for Rural Areas** is a modern web-based healthcare platform developed to improve medical accessibility in rural regions. This system enables patients to connect with doctors remotely, manage health records, schedule appointments, and receive healthcare support online.
+The **Healthcare System – Telemedicine for Rural Healthcare Access** is a modern web-based healthcare platform developed to improve medical accessibility in rural regions. This system enables patients to connect with doctors remotely, manage health records, schedule appointments, and receive healthcare support online.
 
 The project focuses on reducing the gap between patients and healthcare providers through digital healthcare services and real-time communication technologies.
 
