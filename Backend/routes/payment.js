@@ -4,7 +4,7 @@ const router = express.Router();
 
 const razorpay = new Razorpay({
   key_id: "rzp_test_SWdV4V4BpskctR",
-  key_secret: "p8J2pPLCzqBLR4ZuvP619D7P",
+  key_secret: "keySecret",
 });
 
 // Create Order
