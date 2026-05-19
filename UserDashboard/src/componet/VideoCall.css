@@ -1,0 +1,184 @@
+.VideoCall {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 100px;
+  width: 96%;
+  margin-left: 30px;
+  height: 110vh;
+  border-radius: 15px;
+  background-image: linear-gradient(to right, #b2aaaa78, rgba(144, 155, 155, 0.427), #a9a0a07e);
+}
+
+.DoctorMsg {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 500px;
+}
+
+.UserMsg {
+  margin-top: 10px;
+  display: flex;
+}
+
+.UserMsg input {
+width: 100%;
+height: 40px;
+border-radius: 10px;
+padding: 20px;
+font-size: 20px;
+
+}
+.VideoTop{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 5px;
+    width: 100%;
+    
+}
+.VideoTop h3{
+    margin-right: 90px;
+}
+.videoIcon{
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+.chatMsg{
+    background-image: linear-gradient(to right, #c2c1c123, #e1dada4f, #c1bdbd4a);
+    border-radius: 15px;
+    box-shadow: 0.5px 0.5px 3px 1px black;
+}
+.UserMsg i {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    right: 50px;
+    font-size: 20px;
+}
+
+/* Chat messages */
+.myMsg {
+  background-color: #2b7cff;
+  color: white;
+  padding: 8px 12px;
+  border-radius: 10px;
+  margin: 5px;
+  width: fit-content;
+  margin-left: auto;
+  text-align: right;
+}
+
+.userMsg {
+  background-color: #e5e5e5;
+  color: black;
+  padding: 8px 12px;
+  border-radius: 10px;
+  margin: 5px;
+  width: fit-content;
+  margin-right: auto;
+  text-align: left;
+}
+.UserMsg input{
+  width: 100%;
+}
+.back{
+  position: relative;
+  bottom: 100px;
+  left: 300px;
+  width: 100px;
+  height: 40px;
+  border-radius: 15px;
+  background-color: #2b7cff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.back a{
+  font-size: 20px;
+  color: black;
+}
+
+
+
+.VideoContainer {
+  position: relative;
+  width: 600px;
+  height: 400px;
+  background-color: black;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.remoteVideo {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.localVideo {
+  position: absolute;
+  width: 150px;
+  height: 110px;
+  bottom: 10px;
+  right: 10px;
+  border-radius: 10px;
+  border: 2px solid white;
+  object-fit: cover;
+}
+
+.callButtons {
+  position: absolute;
+  bottom: 10px;
+  left: 10px;
+}
+
+.endCallBtn {
+  background-color: red;
+  color: white;
+  padding: 10px;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.videoContainer {
+  position: relative;
+  width: 100%;
+  height: 400px;
+  background: black;
+  border-radius: 12px;
+  margin-bottom: 15px;
+  overflow: hidden;
+}
+
+.remoteVideo {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.localVideo {
+  position: absolute;
+  bottom: 15px;
+  right: 15px;
+  width: 180px;
+  height: 120px;
+  object-fit: cover;
+  border-radius: 10px;
+  border: 2px solid white;
+}
+
+.endBtn {
+  position: absolute;
+  bottom: 15px;
+  left: 15px;
+  background: red;
+  color: white;
+  border: none;
+  padding: 10px 18px;
+  border-radius: 10px;
+  cursor: pointer;
+}

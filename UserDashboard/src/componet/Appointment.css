@@ -1,0 +1,51 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+.appontUser{
+  width: 96%;
+ margin-top: 100px;
+  text-align: center;
+  margin-left: 30px;
+  border-radius: 15px;
+  background-image: linear-gradient(to right, #33333340, rgba(21, 19, 21, 0.218), #57555538);
+  height: 100vh;
+}
+
+.appointmentTable{
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 30px;
+}
+
+.appointmentTable th{
+  font-weight: bolder;
+  color: black;
+  font-size: 22px;
+  padding: 12px;
+ background-color: #2322;
+  
+}
+
+.appointmentTable td{
+  border: 1px solid #ddd;
+  padding: 10px;
+  font-weight: bold;
+}
+
+.appointmentTable td a{
+    width: 100px;
+    height: 70px;
+    background-color: aqua;
+}
+.appointmentTable tr:nth-child(even){
+  background-color: #f2f2f2;
+}
+
+.appointmentTable button{
+  padding: 6px 12px;
+  border: none;
+  cursor: pointer;
+  border-radius: 4px;
+}

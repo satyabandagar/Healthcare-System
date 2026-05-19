@@ -1,0 +1,20 @@
+{
+  "home": "मुख्यपृष्ठ",
+  "about": "माहिती",
+  "contact": "संपर्क",
+  "register": "नोंदणी",
+  "profile": "प्रोफाइल",
+  "appointment": "अपॉइंटमेंट",
+  "logout": "लॉगआउट",
+  "title": "ग्रामीण भागासाठी टेलिमेडिसिन",
+  "subtitle": "आरोग्यसेवा प्रवेश",
+   "doctorList": "डॉक्टर यादी",
+   "noDoctor": "डॉक्टर सापडला नाही",
+  "name": "नाव",
+  "speciality": "विशेषता",
+  "fee": "फी",
+  "more": "अधिक",
+  "bookAppointment": "अपॉइंटमेंट बुक करा",
+  "trustedDoctors": "100+ विश्वासू डॉक्टरांसोबत",
+  "createAccount": "खाते तयार करा"
+}

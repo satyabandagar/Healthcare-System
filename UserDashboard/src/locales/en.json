@@ -1,0 +1,20 @@
+{
+  "home": "Home",
+  "about": "About",
+  "contact": "Contact",
+  "register": "Register",
+  "profile": "Profile",
+  "appointment": "Appointment",
+  "logout": "Logout",
+  "title": "Telemedicine for Rural Area",
+  "subtitle": "Healthcare Access",
+  "doctorList": "Doctor List",
+  "noDoctor": "No doctor found",
+  "name": "Name",
+  "speciality": "Speciality",
+  "fee": "Fee",
+  "more": "More",
+  "bookAppointment": "Book Appointment",
+  "trustedDoctors": "With 100+ Trusted Doctors",
+  "createAccount": "Create Account"
+}
