@@ -10,7 +10,7 @@ router.post("/", async (req, res) => {
       service: "gmail",
       auth: {
         user: "bandagarsatyappa91@gmail.com",   
-        pass: "votc gvjb rnlo glnq", 
+        pass: "", 
       },
     });
 
