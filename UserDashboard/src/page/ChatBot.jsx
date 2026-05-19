@@ -13,7 +13,7 @@ function ChatBot() {
 
   const [input, setInput] = useState("");
 
-  const API_KEY = "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";
+  const API_KEY = "";
 
   const sendMessage = async () => {
     if (input.trim() === "") return;
